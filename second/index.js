@@ -51,7 +51,7 @@ function mainFunc(array, constanta, quantityOfCities) {
         return foo
     };
     if (quantityOfCities === 3) {
-        for (let x = 0; x < 3; x++) {
+        for (let x = 0; x < 3; x++) { 
             for (let y = (0+x); y < 3; y++) {
                 for (let i = 0; i < (array.length - (2+y)); i++) {
                     let result = sum([array[x], array[(1+y)], array[((2+i)+y)]]);
@@ -92,10 +92,13 @@ function chooseDistance(t, k, ls) {
             return console.error('Відстані в списку повинні бути додатніми, або нульовими значеннями');
         }
     }
+    if (ls.length < k) {
+        return null
+    }
     const array = filtration(ls);
     const resultArray = mainFunc(array, t, k);
     if (resultArray === null || resultArray.length === 0) {
         return null
     } else return findTheBiggest(resultArray)
 }
-console.log(chooseDistance(170, 3, [51, 56, 58, 59, 61]))
+console.log(chooseDistance(170, 6, [51, 56, 58, 59, 61]))
